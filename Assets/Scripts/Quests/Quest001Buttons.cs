@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,17 @@ public class Quest001Buttons : MonoBehaviour
     public GameObject Objective01;
     public GameObject Objective02;
     public GameObject Objective03;
+    public GameObject ExMark;
+    public GameObject TheNotice;
+    public GameObject NoticeTrigger;
+    public GameObject MiniMap;
 
     public void AcceptQuest()
     {
+        MiniMap.SetActive(true);
+        QuestManager.SubQuestNumber = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         ThePlayer.SetActive(true);
         NoticeCam.SetActive(false);
         UIQuest.SetActive(false);
@@ -24,6 +33,9 @@ public class Quest001Buttons : MonoBehaviour
 
     IEnumerator SetQuestUI()
     {
+        ExMark.SetActive(false);
+        TheNotice.SetActive(false);
+        NoticeTrigger.SetActive(false);
         ActiveQuestBox.GetComponent<TextMeshProUGUI>().text = "My First Weapon";
         Objective01.GetComponent<TextMeshProUGUI>().text = "Reach the clearing in the wood";
         Objective02.GetComponent<TextMeshProUGUI>().text = "Open the chest";
@@ -46,6 +58,9 @@ public class Quest001Buttons : MonoBehaviour
 
     public void DeclineQuest()
     {
+        MiniMap.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         ThePlayer.SetActive(true);
         NoticeCam.SetActive(false);
         UIQuest.SetActive(false);

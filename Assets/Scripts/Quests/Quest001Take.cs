@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Quest001Take : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Quest001Take : MonoBehaviour
     public GameObject UIQuest;
     public GameObject ThePlayer;
     public GameObject NoticeCam;
+    public GameObject MiniMap;
     void Update()
     {
         TheDistance = PlayerCasting.DistanceFromTarget;
@@ -19,6 +22,7 @@ public class Quest001Take : MonoBehaviour
     {
         if (TheDistance <= 3)
         {
+            AttackBlocker.BlockSword = 1;
             ActionDisplay.SetActive(true);
             ActionText.SetActive(true);
         }
@@ -27,7 +31,10 @@ public class Quest001Take : MonoBehaviour
         {
             if (TheDistance <= 3)
             {
-                Cursor.lockState = CursorLockMode.Confined;
+                MiniMap.SetActive(false);
+                AttackBlocker.BlockSword = 2;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 ActionDisplay.SetActive(false);
                 ActionText.SetActive(false);
                 UIQuest.SetActive(true);
@@ -39,6 +46,7 @@ public class Quest001Take : MonoBehaviour
 
     void OnMouseExit()
     {
+        AttackBlocker.BlockSword = 0;
         ActionDisplay.SetActive(false);
         ActionText.SetActive(false);
     }
