@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class NPC001 : MonoBehaviour
+public class NPC001_Comp : MonoBehaviour
 {
     public float TheDistance;
     public GameObject ActionDisplay;
@@ -13,7 +12,6 @@ public class NPC001 : MonoBehaviour
     public GameObject TextBox;
     public GameObject NPCName;
     public GameObject NPCText;
-    public GameObject GateOpen;
 
 
     void Update()
@@ -55,13 +53,14 @@ public class NPC001 : MonoBehaviour
 
     IEnumerator NPC001Active()
     {
-        if(QuestManager.ActiveQuestNumber == 2)
+        if (QuestManager.ActiveQuestNumber == 2 && QuestManager.SubQuestNumber == 4)
         {
             TextBox.SetActive(true);
             NPCName.GetComponent<TextMeshProUGUI>().text = "Skeleton";
             NPCName.SetActive(true);
-            NPCText.GetComponent<TextMeshProUGUI>().text = "We have a spider problem. Can you go outside the village, kill the spiders and their boss. Here is the key.";
-            GateOpen.SetActive(true);
+            NPCText.GetComponent<TextMeshProUGUI>().text = "Thank you very much for your help. There is a cave outside the village, please go explore.";
+            QuestManager.ActiveQuestNumber = 3;
+            QuestManager.SubQuestNumber = 1;
             NPCText.SetActive(true);
             yield return new WaitForSeconds(5.5f);
             NPCName.SetActive(false);
@@ -70,12 +69,12 @@ public class NPC001 : MonoBehaviour
             ActionDisplay.SetActive(true);
             ActionText.SetActive(true);
         }
-        else 
+        else
         {
             TextBox.SetActive(true);
             NPCName.GetComponent<TextMeshProUGUI>().text = "Skeleton";
             NPCName.SetActive(true);
-            NPCText.GetComponent<TextMeshProUGUI>().text = "Hello friend, I may have a quest for you if you wish to accept it. Please come back later on this afternoon.";
+            NPCText.GetComponent<TextMeshProUGUI>().text = "Please come and see me when you have explored the cave.";
             NPCText.SetActive(true);
             yield return new WaitForSeconds(5.5f);
             NPCName.SetActive(false);
@@ -84,7 +83,5 @@ public class NPC001 : MonoBehaviour
             ActionDisplay.SetActive(true);
             ActionText.SetActive(true);
         }
-
     }
-
 }
