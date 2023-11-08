@@ -9,6 +9,7 @@ public class Quest002Start : MonoBehaviour
     public float TheDistance;
     public GameObject ActionDisplay;
     public GameObject ActionText;
+    public AudioSource gateOpen;
 
     void Update()
     {
@@ -30,6 +31,7 @@ public class Quest002Start : MonoBehaviour
             if (TheDistance <= 3)
             {
                 AttackBlocker.BlockSword = 2;
+                gateOpen.Play();
                 Screen.lockCursor = false;
                 Cursor.visible = true;
                 ActionDisplay.SetActive(false);

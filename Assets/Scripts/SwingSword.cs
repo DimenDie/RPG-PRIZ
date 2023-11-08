@@ -6,11 +6,13 @@ public class SwingSword : MonoBehaviour
 {
     public GameObject TheSword;
     public int SwordStatus;
+    public AudioSource swordSwingAudio;
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1") && SwordStatus == 0 && AttackBlocker.BlockSword == 0)
         {
+            swordSwingAudio.Play();
             StartCoroutine(SwingSwordFunction());
         }
     }

@@ -23,7 +23,7 @@ public class HealthMonitor : MonoBehaviour
 
         if(healthValue <= 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
 
         if (healthValue == 1)

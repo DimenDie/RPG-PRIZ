@@ -13,7 +13,7 @@ public class Q001OpenGate : MonoBehaviour
     public GameObject LeftGate;
     public GameObject SmallSpider;
     public GameObject BossSpider;
-
+    public AudioSource gateOpen;
 
     void Update()
     {
@@ -39,6 +39,7 @@ public class Q001OpenGate : MonoBehaviour
                 ActionDisplay.SetActive(false);
                 ActionText.SetActive(false);
                 ActionText.GetComponent<TextMeshProUGUI>().text = "";
+                gateOpen.Play();
                 LeftGate.GetComponent<Animation>().Play("leftGateAnim");
                 RightGate.GetComponent<Animation>().Play("rightGateAnim");
                 SmallSpider.SetActive(true);

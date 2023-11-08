@@ -40,6 +40,8 @@ public class Quest001Take : MonoBehaviour
                 UIQuest.SetActive(true);
                 NoticeCam.SetActive(true);
                 ThePlayer.SetActive(false);
+                MasterQuest.mainQuestName = "Find The Sword!";
+                MasterQuest.mainQuestInfo = "I have to find the sword which is said to be inside a chest not too deep in the forest. The reward for this seems to be 100 Gold";
             }
         }
     }
