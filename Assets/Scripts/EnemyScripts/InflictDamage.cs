@@ -7,11 +7,12 @@ public class InflictDamage : MonoBehaviour
     public int DamageAmount = 5;
     public float TargetDistance;
     public float AllowedRange = 2.7f;
+    
 
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && SwingSword.isSwinging)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))

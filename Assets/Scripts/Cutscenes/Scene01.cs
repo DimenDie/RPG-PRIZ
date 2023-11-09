@@ -11,6 +11,8 @@ public class Scene01 : MonoBehaviour
     public GameObject FadeOut;
     public GameObject FadeIn;
     public GameObject ThePlayer;
+    public GameObject healthBar;
+    public GameObject miniMap;
 
     void Start()
     {
@@ -35,5 +37,7 @@ public class Scene01 : MonoBehaviour
         Camera3.SetActive(false);
         yield return new WaitForSeconds(1);
         FadeIn.SetActive(false);
+        healthBar.SetActive(true);
+        miniMap.SetActive(true);
     }
 }

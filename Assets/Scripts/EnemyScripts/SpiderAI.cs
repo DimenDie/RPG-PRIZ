@@ -61,7 +61,7 @@ public class SpiderAI : MonoBehaviour
         duringAttack = true;
         yield return new WaitForSeconds(0.5f);
         if (SpiderEnemy.GlobalSpider != 6)
-            HealthMonitor.healthValue -= 1;
+            HealthMonitor.healthValue -= 10;
         yield return new WaitForSeconds(0.4f);
         duringAttack = false;
     }

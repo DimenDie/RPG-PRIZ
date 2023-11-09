@@ -15,8 +15,13 @@ public class HeartCollect : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        if(HealthMonitor.healthValue == 300)
+        {
+            //add extra spin
+            return;
+        }
         collectSound.Play();
-        HealthMonitor.healthValue += 1;
+        HealthMonitor.healthValue += 20;
         gameObject.SetActive(false);
     }
 }

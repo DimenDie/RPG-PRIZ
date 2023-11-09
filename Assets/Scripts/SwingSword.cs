@@ -7,6 +7,7 @@ public class SwingSword : MonoBehaviour
     public GameObject TheSword;
     public int SwordStatus;
     public AudioSource swordSwingAudio;
+    public static bool isSwinging = false;
 
     private void Update()
     {
@@ -19,10 +20,12 @@ public class SwingSword : MonoBehaviour
 
     IEnumerator SwingSwordFunction()
     {
+        isSwinging = true;
         SwordStatus = 1;
         TheSword.GetComponent<Animation>().Play("ElvenSwordAnim");
         SwordStatus = 2;
         yield return new WaitForSeconds(1.0f);
         SwordStatus = 0;
+        isSwinging = false;
     }
 }

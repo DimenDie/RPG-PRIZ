@@ -24,4 +24,14 @@ public class MenuControls : MonoBehaviour
         loadingGame.SetActive(true);
         SceneManager.LoadScene(1);
     }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
